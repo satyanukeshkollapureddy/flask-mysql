@@ -5,3 +5,13 @@ curl --silent --location \
 sudo mv /tmp/eksctl /usr/local/bin
 
 eksctl version
+
+
+
+
+eksctl create cluster --name flask-cluster --region us-east-1 --nodegroup-name worker --node-type t3.medium --nodes 2
+
+eksctl get cluster
+
+kubectl get pods
+kubectl get nodes

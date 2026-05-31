@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app
+  labels:
+    app: flask
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      containers:
+        - name: two-tier-app
+          image: sandy315/eks-flask-mysql:latest
+          env:
+            - name: MYSQL_HOST
+              value: mysql          
+            - name: MYSQL_PASSWORD
+              value: "sandeep"
+            - name: MYSQL_USER
+              value: "sandeep"
+            - name: MYSQL_DB
+              value: "mydb"
+          ports:
+            - containerPort: 5000
+          imagePullPolicy: Always
+~
+~
+~
+~
+~
+~
+~
